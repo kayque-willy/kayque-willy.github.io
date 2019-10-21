@@ -71,7 +71,7 @@ var HomePage = /** @class */ (function () {
                 _this.storage.get('respondent')
                     .then(function (respondent) {
                     if (respondent != null) {
-                        var alert = _this.alertCtrl.create({
+                        var alert_1 = _this.alertCtrl.create({
                             title: 'Já existe um usuário respondendo os questionários',
                             message: 'Você gostaria de continuar respondendo os questionários com o usuário: <br/> CPF - ' + respondent.cpf + '?',
                             buttons: [{
@@ -86,7 +86,7 @@ var HomePage = /** @class */ (function () {
                                     }
                                 }]
                         });
-                        alert.present();
+                        alert_1.present();
                     }
                     else {
                         _this.removeStoredData();
@@ -364,10 +364,9 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"D:\IONIC Projects\neiru_surveys_app-develop\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-row>\n      <ion-col offset-2 col-6>\n        <img class="img-responsive" src="assets/imgs/header-logo.png" />\n      </ion-col>\n      <ion-col offset-1 col-2>\n        <button ion-button clear (click)="help()">\n          <ion-icon class="icon-help" name="help-circle"></ion-icon>\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 text-center class="text-home">\n        <h1>Bem vindo!</h1>\n        <h5>Por favor, nos informe quem é você e selecione uma cidade para responder os questionários.</h5>\n      </ion-col>\n    </ion-row>\n    <ion-row class="margin-top-30-percent">\n      <ion-col col-12>\n        <ion-item>\n          <ion-label>Quem é você?</ion-label>\n          <ion-select [(ngModel)]="userType">\n            <ion-option *ngFor="let userType of userTypes" [value]="userType" (ionSelect)="selectUserType(userType)">\n              {{userType.name}}</ion-option>\n          </ion-select>\n        </ion-item>\n        <ion-item class="margin-top-30">\n          <ion-label>Selecione a cidade</ion-label>\n          <ion-select [(ngModel)]="city" disabled="{{userType == null}}">\n            <ion-option *ngFor="let city of cities" [value]="city" (ionSelect)="getAllPlansByCity(city)">{{city.name}}\n            </ion-option>\n          </ion-select>\n        </ion-item>\n        <ion-item class="margin-top-30">\n          <ion-label>Selecione o plano</ion-label>\n          <ion-select [(ngModel)]="plan" disabled="{{city == null}}">\n            <ion-option *ngFor="let plan of plans" [value]="plan"\n              (ionSelect)="getAllQuestionariesByPlan(plan); enableBtnContinue();">{{plan.name}}</ion-option>\n          </ion-select>\n        </ion-item>\n        <ion-item class="margin-top-30">\n          <ion-label>Você reside em zona rural?</ion-label>\n          <ion-toggle [disabled]="btnContinueDisabled" (ionChange)="changeZone()" [(ngModel)]="isRuralZone"\n            checked="false"></ion-toggle>\n        </ion-item>\n        <button ion-button full class="button-background margin-top-30" (click)="navigateProfilePage()"\n          [disabled]="btnContinueDisabled">Continuar</button>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"D:\IONIC Projects\neiru_surveys_app-develop\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_city_city__["a" /* CityProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_city_city__["a" /* CityProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_plan_plan__["b" /* PlanProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_plan_plan__["b" /* PlanProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_questionary_questionary__["c" /* QuestionaryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_questionary_questionary__["c" /* QuestionaryProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__providers_database_database__["a" /* DatabaseProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_database_database__["a" /* DatabaseProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_7__providers_rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__providers_rest_rest__["a" /* RestProvider */]) === "function" && _k || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_city_city__["a" /* CityProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_plan_plan__["b" /* PlanProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_questionary_questionary__["c" /* QuestionaryProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_6__providers_database_database__["a" /* DatabaseProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_7__providers_rest_rest__["a" /* RestProvider */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
 
 var UserType = /** @class */ (function () {
@@ -389,9 +388,9 @@ var UserType = /** @class */ (function () {
 /* unused harmony export AppVersionResponse */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_network__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_network__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_jssha__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_jssha__ = __webpack_require__(271);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_jssha___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_jssha__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_app_version__ = __webpack_require__(167);
@@ -674,27 +673,27 @@ var map = {
 		5
 	],
 	"../pages/intro/intro.module": [
-		292,
+		296,
 		6
 	],
 	"../pages/prioritization/prioritization.module": [
-		294,
+		293,
 		4
 	],
 	"../pages/questionaries-list/questionaries-list.module": [
-		295,
+		297,
 		3
 	],
 	"../pages/questionary/questionary.module": [
-		296,
+		294,
 		2
 	],
 	"../pages/respondent-profile/respondent-profile.module": [
-		297,
+		295,
 		0
 	],
 	"../pages/thankyou/thankyou.module": [
-		293,
+		292,
 		1
 	]
 };
@@ -1939,10 +1938,9 @@ var PrioritizationProvider = /** @class */ (function () {
     };
     PrioritizationProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__rest_rest__["a" /* RestProvider */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__rest_rest__["a" /* RestProvider */]])
     ], PrioritizationProvider);
     return PrioritizationProvider;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=prioritization.js.map
@@ -1990,7 +1988,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "1.	Com qual frequência você vai a (rua ou centro)?",
                         description: "",
                         question: "1.	Com qual frequência você vai a (rua ou centro)? ",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2002,7 +2000,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "2.	O que te trás a (rua ou centro)?",
                         description: "",
                         question: "2.	O que te trás a (rua ou centro)?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2014,7 +2012,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "3.	Você vai a (rua ou centro) à noite?",
                         description: "",
                         question: "3.	Você vai a (rua ou centro) à noite?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2026,7 +2024,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "4.	Se não, por quê?",
                         description: "Selecione abaixo",
                         question: "4.	Se não, por quê?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2038,7 +2036,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "5.	O que te atrai para (rua ou centro)?",
                         description: "Selecione abaixo",
                         question: "5.	O que te atrai para (rua ou centro)?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2050,7 +2048,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "6.	Do ponto de vista equipamentos e comércios o que falta nesta (rua ou centro)?",
                         description: "Selecione abaixo",
                         question: "6.	Do ponto de vista equipamentos e comércios o que falta nesta (rua ou centro)?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2062,7 +2060,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "7.	Como você qualifica os pontos comerciais na (rua ou centro)?",
                         description: "Selecione abaixo",
                         question: "7.	Como você qualifica os pontos comerciais na (rua ou centro)?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2080,7 +2078,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "1.	Costuma usufruir dos espaços públicos na (rua ou centro)? (Espaços públicos entende-se como calçada, rua, praças e parques)",
                         description: "",
                         question: "1.	Costuma usufruir dos espaços públicos na (rua ou centro)? (Espaços públicos entende-se como calçada, rua, praças e parques)",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2092,7 +2090,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "2.	Considera as obras de requalificação urbana na (rua ou centro)?",
                         description: "",
                         question: "2.	Considera as obras de requalificação urbana na (rua ou centro)?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2104,7 +2102,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "3.	Como você avalia a qualidade da calçada?",
                         description: "",
                         question: "3.	Como você avalia a qualidade da calçada?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2116,7 +2114,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "4.	Como você avalia as rampas de acessibilidade?",
                         description: "",
                         question: "4.	Como você avalia as rampas de acessibilidade?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2128,7 +2126,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "5.	Como você avalia os pisos táteis?",
                         description: "",
                         question: "5.	Como você avalia os pisos táteis?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2140,7 +2138,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "6.	Você acha que existem vagas de estacionamento suficientes?",
                         description: "",
                         question: "6.	Você acha que existem vagas de estacionamento suficientes?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2152,7 +2150,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "7.	Como você avalia a necessidade destes equipamentos? (Bancos e locais de descanso)",
                         description: "",
                         question: "7.	Como você avalia a necessidade destes equipamentos? (Bancos e locais de descanso)",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2164,7 +2162,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "8.	Como você avalia a necessidade destes equipamentos? (Lixeiras)",
                         description: "",
                         question: "8.	Como você avalia a necessidade destes equipamentos? (Lixeiras)",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2176,7 +2174,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "9.	Como você avalia a necessidade destes equipamentos? (Arborização)",
                         description: "",
                         question: "9.	Como você avalia a necessidade destes equipamentos? (Arborização)",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2188,7 +2186,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "10.	Como você avalia a necessidade destes equipamentos? (Iluminação voltada aos pedestres)",
                         description: "",
                         question: "10.	Como você avalia a necessidade destes equipamentos? (Iluminação voltada aos pedestres)",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2200,7 +2198,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "11.	Como você avalia a necessidade destes equipamentos? (Ponto de Ônibus)",
                         description: "",
                         question: "11.	Como você avalia a necessidade destes equipamentos? (Ponto de Ônibus)",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2212,7 +2210,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "12.	Você gosta do comércio de rua (Barracas e Kombis de alimentação)?",
                         description: "",
                         question: "12.	Você gosta do comércio de rua (Barracas e Kombis de alimentação)?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2230,7 +2228,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "1.	Qual o ramo da sua atividade comercial? ",
                         description: "",
                         question: "1.	Qual o ramo da sua atividade comercial? ",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2242,7 +2240,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "2.	Porque você escolheu essa rua para seu comércio? ",
                         description: "",
                         question: "2.	Porque você escolheu essa rua para seu comércio? ",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2254,7 +2252,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "3.	Quanto você está satisfeito com a infraestrutura básica da rua?",
                         description: "",
                         question: "3.	Quanto você está satisfeito com a infraestrutura básica da rua?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2266,7 +2264,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "4.	Quais melhorias poderiam ser feitas para atender suas necessidades?",
                         description: "",
                         question: "4.	Quais melhorias poderiam ser feitas para atender suas necessidades?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2278,7 +2276,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "5.	O que as pessoas costumam fazer nessa rua?",
                         description: "",
                         question: "5.	O que as pessoas costumam fazer nessa rua?",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2290,7 +2288,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "6.	Quais são os pontos fortes da sua rua? ",
                         description: "",
                         question: "6.	Quais são os pontos fortes da sua rua? ",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2302,7 +2300,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "7.	Quais são os pontos fracos da sua rua? ",
                         description: "",
                         question: "7.	Quais são os pontos fracos da sua rua? ",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2314,7 +2312,7 @@ var QuestionProvider = /** @class */ (function () {
                         name: "8.	O que você pensa sobre a seguinte afirmação: “Não trocaria a minha rua por nenhum outro local da cidade”",
                         description: "",
                         question: "8.	O que você pensa sobre a seguinte afirmação: “Não trocaria a minha rua por nenhum outro local da cidade”",
-                        contextArea: "Urbanização",
+                        contextArea: "Requalificação do Centro",
                         contextAreaIcon: "city-icon.png",
                         position: "1",
                         isRuralZone: "0",
@@ -2409,9 +2407,10 @@ var QuestionProvider = /** @class */ (function () {
     };
     QuestionProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__rest_rest__["a" /* RestProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__rest_rest__["a" /* RestProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__rest_rest__["a" /* RestProvider */]) === "function" && _b || Object])
     ], QuestionProvider);
     return QuestionProvider;
+    var _a, _b;
 }());
 
 var Question = /** @class */ (function () {
@@ -2424,7 +2423,7 @@ var Question = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 213:
+/***/ 212:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2706,8 +2705,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_respondent_respondent__ = __webpack_require__(215);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_prioritization_prioritization__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_answer_answer__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_network__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_answer_answer__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_network__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_app_version__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_intro_intro__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2753,12 +2752,12 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/about/about.module#AboutPageModule', name: 'AboutPage', segment: 'about', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/intro/intro.module#IntroPageModule', name: 'IntroPage', segment: 'intro', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/thankyou/thankyou.module#ThankyouPageModule', name: 'ThankyouPage', segment: 'thankyou', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/prioritization/prioritization.module#PrioritizationPageModule', name: 'PrioritizationPage', segment: 'prioritization', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/questionaries-list/questionaries-list.module#QuestionariesListPageModule', name: 'QuestionariesListPage', segment: 'questionaries-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/questionary/questionary.module#QuestionaryPageModule', name: 'QuestionaryPage', segment: 'questionary', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/respondent-profile/respondent-profile.module#RespondentProfilePageModule', name: 'RespondentProfilePage', segment: 'respondent-profile', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/respondent-profile/respondent-profile.module#RespondentProfilePageModule', name: 'RespondentProfilePage', segment: 'respondent-profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/intro/intro.module#IntroPageModule', name: 'IntroPage', segment: 'intro', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/questionaries-list/questionaries-list.module#QuestionariesListPageModule', name: 'QuestionariesListPage', segment: 'questionaries-list', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_15__angular_common_http__["b" /* HttpClientModule */],
